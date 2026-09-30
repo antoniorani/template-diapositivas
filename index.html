@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#080914" />
+    <title>Template Diapositivas</title>
+    <meta
+      name="description"
+      content="Plantilla de presentación web animada para GitHub Pages."
+    />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link rel="stylesheet" href="src/styles.css" />
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script defer src="src/app.js"></script>
+  </head>
+
+  <body>
+    <main class="deck" aria-live="polite">
+      <section
+        class="slide title-slide active"
+        data-title="Inicio"
+        data-notes="Abre con una frase clara: esta plantilla está pensada para hacer presentaciones web con aspecto premium y animación fluida."
+      >
+        <div class="orb orb-a"></div>
+        <div class="orb orb-b"></div>
+
+        <p class="eyebrow">Template · Web slides</p>
+        <h1>Diapositivas animadas<br />listas para GitHub Pages</h1>
+        <p class="lead max-720">
+          Una base elegante para crear presentaciones interactivas con HTML, CSS y JavaScript.
+        </p>
+
+        <div class="hero-actions fragment">
+          <span class="pill">16:9 responsive</span>
+          <span class="pill">GSAP-ready</span>
+          <span class="pill">Presenter notes</span>
+        </div>
+      </section>
+
+      <section
+        class="slide split"
+        data-title="Principio"
+        data-notes="Explica que cada slide debe contar una sola idea. Menos paneles, más escena."
+      >
+        <div>
+          <p class="eyebrow">Principio de diseño</p>
+          <h2>Una diapositiva = una escena</h2>
+          <p class="lead">
+            En vez de llenar la pantalla de cajas, construimos una composición con jerarquía,
+            ritmo y movimiento.
+          </p>
+        </div>
+
+        <div class="scene-card fragment">
+          <div class="mini-stage">
+            <span></span><span></span><span></span>
+          </div>
+          <strong>Menos plantilla. Más narrativa.</strong>
+          <p>El foco visual guía la explicación y las animaciones acompañan, no distraen.</p>
+        </div>
+      </section>
+
+      <section
+        class="slide"
+        data-title="Arquitectura"
+        data-notes="Aquí puedes describir la pila: HTML para contenido, CSS para dirección de arte y JS para navegación y animación."
+      >
+        <p class="eyebrow">Arquitectura</p>
+        <h2>Motor simple, resultado pulido</h2>
+
+        <div class="flow">
+          <div class="flow-item fragment">
+            <span class="index">01</span>
+            <h3>HTML</h3>
+            <p>Contenido editable y semántico.</p>
+          </div>
+          <div class="flow-item fragment">
+            <span class="index">02</span>
+            <h3>CSS</h3>
+            <p>Dirección visual, escala, color y composición.</p>
+          </div>
+          <div class="flow-item fragment">
+            <span class="index">03</span>
+            <h3>JS</h3>
+            <p>Navegación, fragmentos, notas y animación.</p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="slide showcase"
+        data-title="Animación"
+        data-notes="Enfatiza que las animaciones están pensadas como capas: entrada de la slide, después fragmentos, después reinicio si hace falta."
+      >
+        <div>
+          <p class="eyebrow">Animación</p>
+          <h2>Movimiento con intención</h2>
+          <p class="lead max-640">
+            Cada elemento puede entrar por secuencia. Avanzas con espacio, flecha o clic.
+          </p>
+        </div>
+
+        <div class="motion-demo">
+          <div class="motion-line fragment"></div>
+          <div class="motion-dot fragment"></div>
+          <div class="motion-label fragment">Reveal</div>
+        </div>
+      </section>
+
+      <section
+        class="slide metrics"
+        data-title="Impacto"
+        data-notes="Ejemplo de diapositiva con métricas. Sustituye estos números por datos reales."
+      >
+        <p class="eyebrow">Ejemplo de impacto</p>
+        <h2>Datos grandes, poca fricción</h2>
+
+        <div class="metric-grid">
+          <div class="metric fragment">
+            <strong>4×</strong>
+            <span>más visual</span>
+          </div>
+          <div class="metric fragment">
+            <strong>0</strong>
+            <span>instalaciones para ver</span>
+          </div>
+          <div class="metric fragment">
+            <strong>1 URL</strong>
+            <span>para compartir y presentar</span>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="slide split closing-slide"
+        data-title="Cierre"
+        data-notes="Cierra con la URL, llamada a la acción o siguiente paso."
+      >
+        <div>
+          <p class="eyebrow">Siguiente paso</p>
+          <h2>Edita, publica y presenta</h2>
+          <p class="lead">
+            Duplica este repositorio, cambia el contenido y actívalo en GitHub Pages.
+          </p>
+        </div>
+
+        <div class="shortcut-list fragment">
+          <p><kbd>F</kbd> pantalla completa</p>
+          <p><kbd>P</kbd> notas</p>
+          <p><kbd>R</kbd> reiniciar animación</p>
+          <p><kbd>←</kbd><kbd>→</kbd> navegar</p>
+        </div>
+      </section>
+    </main>
+
+    <div class="hud" aria-hidden="true">
+      <div class="progress"><span></span></div>
+      <div class="counter">1 / 6</div>
+    </div>
+
+    <aside class="presenter" aria-hidden="true">
+      <button class="presenter-close" type="button" aria-label="Cerrar notas">×</button>
+      <p class="presenter-kicker">Notas del presentador</p>
+      <h2></h2>
+      <p></p>
+    </aside>
+  </body>
+</html>
