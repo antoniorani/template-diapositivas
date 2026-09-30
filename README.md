@@ -1,82 +1,116 @@
 # Template Diapositivas
 
-Plantilla base para crear presentaciones web animadas, publicables en GitHub Pages.
+Template mínimo para crear presentaciones web y publicarlas directamente con GitHub Pages.
 
-## Qué incluye
+La idea es deliberadamente sencilla:
 
-- Presentación 16:9 adaptable a cualquier pantalla.
-- Navegación con teclado, ratón y táctil.
-- Animaciones por diapositiva y por fragmentos.
-- Soporte para GSAP desde CDN, con fallback nativo si no carga.
-- Modo pantalla completa con `F`.
-- Reinicio de animación con `R`.
-- Vista de notas del presentador con `P` o `?presenter=1`.
-- Enlaces directos a diapositivas con `#/1`, `#/2`, etc.
-- Estilo premium oscuro tipo producto/Keynote.
+- **Reveal.js** resuelve el motor de presentación.
+- **index.html** contiene las diapositivas.
+- **style.css** contiene el aspecto visual.
+- **assets/** guarda imágenes, vídeos y otros recursos.
+- No hay npm, build, framework propio ni GSAP por defecto.
 
-## Cómo usarlo
+## Para crear una presentación
 
-Edita principalmente estos archivos:
+1. Crea un repositorio usando este template.
+2. Edita `index.html`.
+3. Sustituye las slides de ejemplo por las tuyas.
+4. Ajusta `style.css` solo si necesitas cambiar el lenguaje visual.
+5. Activa GitHub Pages sobre la rama `main` y `/root`.
 
-- `index.html`: contenido de las diapositivas.
-- `src/styles.css`: diseño visual, colores y composición.
-- `src/app.js`: motor de navegación y animaciones.
+Eso es todo.
 
-Para presentar localmente, abre `index.html` en el navegador. Para evitar restricciones de algunos navegadores, también puedes lanzar un servidor local:
+## Anatomía de una slide
 
-```bash
-python3 -m http.server 8080
-```
-
-Y abrir:
-
-```text
-http://localhost:8080
-```
-
-## Publicar en GitHub Pages
-
-En GitHub:
-
-1. Abre **Settings → Pages**.
-2. En **Build and deployment**, elige **Deploy from a branch**.
-3. Selecciona la rama `main` y la carpeta `/root`.
-4. Guarda.
-
-La presentación quedará disponible en una URL como:
-
-```text
-https://TU_USUARIO.github.io/template-diapositivas/
-```
-
-## Controles
-
-| Acción | Tecla / gesto |
-|---|---|
-| Avanzar | `→`, `Espacio`, clic |
-| Retroceder | `←` |
-| Ir al inicio | `Home` |
-| Ir al final | `End` |
-| Pantalla completa | `F` |
-| Reiniciar animación | `R` |
-| Mostrar/ocultar notas | `P` |
-| Salir de notas | `Esc` |
-
-## Estructura recomendada para nuevas presentaciones
-
-Cada diapositiva es una sección:
+Cada diapositiva es un `<section>` dentro de:
 
 ```html
-<section class="slide" data-title="Título corto" data-notes="Notas para el presentador">
+<div class="reveal">
+  <div class="slides">
+    <!-- slides aquí -->
+  </div>
+</div>
+```
+
+Ejemplo:
+
+```html
+<section>
   <p class="eyebrow">Sección</p>
   <h2>Título principal</h2>
   <p class="lead">Idea central de la diapositiva.</p>
-  <div class="fragment">Aparece al avanzar.</div>
 </section>
 ```
 
-Usa `.fragment` para elementos que deben aparecer paso a paso.
+## Apariciones paso a paso
 
-## Recomendación de estilo
+Reveal.js ya incluye fragmentos. Solo añade `class="fragment"`:
 
-Mantén cada diapositiva como una escena, no como una lista de bullets. Mejor una idea fuerte, una visual clara y pocas palabras.
+```html
+<p class="fragment">Aparezco al avanzar.</p>
+```
+
+## Transiciones automáticas entre dos slides
+
+Reveal.js también incluye Auto-Animate. Pon `data-auto-animate` en dos slides consecutivas y usa el mismo `data-id` en los elementos que deban transformarse:
+
+```html
+<section data-auto-animate>
+  <h2 data-id="title">Antes</h2>
+</section>
+
+<section data-auto-animate>
+  <h2 data-id="title">Después</h2>
+</section>
+```
+
+No hace falta escribir JavaScript para esa transición.
+
+## Notas del presentador
+
+Dentro de una slide:
+
+```html
+<aside class="notes">
+  Estas notas solo aparecen en la vista del presentador.
+</aside>
+```
+
+Durante la presentación pulsa **S** para abrir la vista del presentador.
+
+## Controles útiles
+
+| Acción | Control |
+|---|---|
+| Avanzar / retroceder | Flechas |
+| Avanzar | Espacio |
+| Vista general | Esc |
+| Notas del presentador | S |
+| Ayuda de atajos | ? |
+| Navegación táctil | Deslizar |
+
+## Publicar en GitHub Pages
+
+En el repositorio:
+
+1. **Settings → Pages**
+2. **Build and deployment → Deploy from a branch**
+3. Rama: **main**
+4. Carpeta: **/(root)**
+5. **Save**
+
+La presentación quedará en una URL similar a:
+
+```text
+https://TU_USUARIO.github.io/NOMBRE-DEL-REPO/
+```
+
+Cada commit nuevo en `main` actualizará la misma URL.
+
+## Criterio del template
+
+Este repositorio no pretende acumular funciones. Pretende quitar trabajo.
+
+Para una presentación normal, no añadas librerías. Reveal.js ya cubre navegación, responsive, progreso, enlaces por slide, fragmentos, Auto-Animate y notas.
+
+Solo añadiremos JavaScript específico cuando una diapositiva concreta realmente lo necesite.
