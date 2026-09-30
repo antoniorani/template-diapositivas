@@ -1,169 +1,116 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#080914" />
-    <title>Template Diapositivas</title>
-    <meta
-      name="description"
-      content="Plantilla de presentación web animada para GitHub Pages."
-    />
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
-    <link rel="stylesheet" href="src/styles.css" />
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script defer src="src/app.js"></script>
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b0d12" />
+  <title>Template Diapositivas</title>
+  <meta name="description" content="Template mínimo para presentaciones web con Reveal.js y GitHub Pages." />
 
-  <body>
-    <main class="deck" aria-live="polite">
-      <section
-        class="slide title-slide active"
-        data-title="Inicio"
-        data-notes="Abre con una frase clara: esta plantilla está pensada para hacer presentaciones web con aspecto premium y animación fluida."
-      >
-        <div class="orb orb-a"></div>
-        <div class="orb orb-b"></div>
+  <!-- Reveal.js: el motor. No hay build, npm ni framework adicional. -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@6.0.1/dist/reveal.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-        <p class="eyebrow">Template · Web slides</p>
-        <h1>Diapositivas animadas<br />listas para GitHub Pages</h1>
-        <p class="lead max-720">
-          Una base elegante para crear presentaciones interactivas con HTML, CSS y JavaScript.
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- 1 · PORTADA -->
+      <section class="cover">
+        <p class="eyebrow">Template · Reveal.js</p>
+        <h1>Una base simple para hacer diapositivas que se vean bien</h1>
+        <p class="lead">Edita este archivo, cambia el contenido y publica. El motor ya está resuelto.</p>
+
+        <aside class="notes">
+          Las notas van dentro de cada slide. Pulsa S durante la presentación para abrir la vista del presentador.
+        </aside>
+      </section>
+
+      <!-- 2 · IDEA -->
+      <section>
+        <p class="eyebrow">Principio</p>
+        <h2>Una diapositiva.<br />Una idea.</h2>
+        <p class="lead narrow">
+          Reveal.js se ocupa de navegación, escalado, progreso, URLs y gestos táctiles.
+          Nosotros nos concentramos en el contenido y el diseño.
         </p>
+      </section>
 
-        <div class="hero-actions fragment">
-          <span class="pill">16:9 responsive</span>
-          <span class="pill">GSAP-ready</span>
-          <span class="pill">Presenter notes</span>
+      <!-- 3–4 · AUTO-ANIMATE
+           Dos slides con data-auto-animate crean una transición automática. -->
+      <section data-auto-animate>
+        <p class="eyebrow">Auto-Animate</p>
+        <h2 data-id="headline">Los cambios entre escenas pueden ser automáticos</h2>
+        <div class="metric" data-id="metric">
+          <strong>18%</strong>
+          <span>situación inicial</span>
         </div>
       </section>
 
-      <section
-        class="slide split"
-        data-title="Principio"
-        data-notes="Explica que cada slide debe contar una sola idea. Menos paneles, más escena."
-      >
-        <div>
-          <p class="eyebrow">Principio de diseño</p>
-          <h2>Una diapositiva = una escena</h2>
-          <p class="lead">
-            En vez de llenar la pantalla de cajas, construimos una composición con jerarquía,
-            ritmo y movimiento.
-          </p>
+      <section data-auto-animate>
+        <p class="eyebrow">Auto-Animate</p>
+        <h2 data-id="headline">Los cambios entre escenas pueden ser automáticos</h2>
+        <div class="metric metric-wide" data-id="metric">
+          <strong>42%</strong>
+          <span>resultado después del cambio</span>
         </div>
+        <p class="caption fragment">Sin programar la transición a mano.</p>
+      </section>
 
-        <div class="scene-card fragment">
-          <div class="mini-stage">
-            <span></span><span></span><span></span>
-          </div>
-          <strong>Menos plantilla. Más narrativa.</strong>
-          <p>El foco visual guía la explicación y las animaciones acompañan, no distraen.</p>
+      <!-- 5 · FRAGMENTOS
+           Añade class="fragment" a lo que deba aparecer paso a paso. -->
+      <section>
+        <p class="eyebrow">Fragmentos</p>
+        <h2>Construye la explicación por pasos</h2>
+
+        <div class="cards">
+          <article class="card fragment">
+            <span>01</span>
+            <h3>Contexto</h3>
+            <p>Presenta la idea.</p>
+          </article>
+          <article class="card fragment">
+            <span>02</span>
+            <h3>Evidencia</h3>
+            <p>Enseña el dato.</p>
+          </article>
+          <article class="card fragment">
+            <span>03</span>
+            <h3>Conclusión</h3>
+            <p>Cierra el argumento.</p>
+          </article>
         </div>
       </section>
 
-      <section
-        class="slide"
-        data-title="Arquitectura"
-        data-notes="Aquí puedes describir la pila: HTML para contenido, CSS para dirección de arte y JS para navegación y animación."
-      >
-        <p class="eyebrow">Arquitectura</p>
-        <h2>Motor simple, resultado pulido</h2>
-
-        <div class="flow">
-          <div class="flow-item fragment">
-            <span class="index">01</span>
-            <h3>HTML</h3>
-            <p>Contenido editable y semántico.</p>
-          </div>
-          <div class="flow-item fragment">
-            <span class="index">02</span>
-            <h3>CSS</h3>
-            <p>Dirección visual, escala, color y composición.</p>
-          </div>
-          <div class="flow-item fragment">
-            <span class="index">03</span>
-            <h3>JS</h3>
-            <p>Navegación, fragmentos, notas y animación.</p>
-          </div>
-        </div>
+      <!-- 6 · CIERRE -->
+      <section class="center">
+        <p class="eyebrow">Eso es todo</p>
+        <h2>El template tiene que desaparecer y dejar que destaque la presentación</h2>
+        <p class="lead">Flechas o espacio para avanzar · S para notas · Esc para vista general · ? para ayuda</p>
       </section>
 
-      <section
-        class="slide showcase"
-        data-title="Animación"
-        data-notes="Enfatiza que las animaciones están pensadas como capas: entrada de la slide, después fragmentos, después reinicio si hace falta."
-      >
-        <div>
-          <p class="eyebrow">Animación</p>
-          <h2>Movimiento con intención</h2>
-          <p class="lead max-640">
-            Cada elemento puede entrar por secuencia. Avanzas con espacio, flecha o clic.
-          </p>
-        </div>
-
-        <div class="motion-demo">
-          <div class="motion-line fragment"></div>
-          <div class="motion-dot fragment"></div>
-          <div class="motion-label fragment">Reveal</div>
-        </div>
-      </section>
-
-      <section
-        class="slide metrics"
-        data-title="Impacto"
-        data-notes="Ejemplo de diapositiva con métricas. Sustituye estos números por datos reales."
-      >
-        <p class="eyebrow">Ejemplo de impacto</p>
-        <h2>Datos grandes, poca fricción</h2>
-
-        <div class="metric-grid">
-          <div class="metric fragment">
-            <strong>4×</strong>
-            <span>más visual</span>
-          </div>
-          <div class="metric fragment">
-            <strong>0</strong>
-            <span>instalaciones para ver</span>
-          </div>
-          <div class="metric fragment">
-            <strong>1 URL</strong>
-            <span>para compartir y presentar</span>
-          </div>
-        </div>
-      </section>
-
-      <section
-        class="slide split closing-slide"
-        data-title="Cierre"
-        data-notes="Cierra con la URL, llamada a la acción o siguiente paso."
-      >
-        <div>
-          <p class="eyebrow">Siguiente paso</p>
-          <h2>Edita, publica y presenta</h2>
-          <p class="lead">
-            Duplica este repositorio, cambia el contenido y actívalo en GitHub Pages.
-          </p>
-        </div>
-
-        <div class="shortcut-list fragment">
-          <p><kbd>F</kbd> pantalla completa</p>
-          <p><kbd>P</kbd> notas</p>
-          <p><kbd>R</kbd> reiniciar animación</p>
-          <p><kbd>←</kbd><kbd>→</kbd> navegar</p>
-        </div>
-      </section>
-    </main>
-
-    <div class="hud" aria-hidden="true">
-      <div class="progress"><span></span></div>
-      <div class="counter">1 / 6</div>
     </div>
+  </div>
 
-    <aside class="presenter" aria-hidden="true">
-      <button class="presenter-close" type="button" aria-label="Cerrar notas">×</button>
-      <p class="presenter-kicker">Notas del presentador</p>
-      <h2></h2>
-      <p></p>
-    </aside>
-  </body>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@6.0.1/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@6.0.1/plugin/notes/notes.js"></script>
+
+  <script>
+    Reveal.initialize({
+      width: 1600,
+      height: 900,
+      margin: 0.06,
+      hash: true,
+      controls: true,
+      progress: true,
+      slideNumber: "c/t",
+      center: true,
+      transition: "fade",
+      backgroundTransition: "fade",
+      autoAnimateDuration: 0.8,
+      plugins: [RevealNotes]
+    });
+  </script>
+</body>
 </html>
