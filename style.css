@@ -179,13 +179,3 @@ body {
   color: var(--muted);
   font-size: 14px;
 }
-
-@media (max-width: 800px) {
-  .reveal .slides section {
-    padding: 36px;
-  }
-
-  .cards {
-    grid-template-columns: 1fr;
-  }
-}

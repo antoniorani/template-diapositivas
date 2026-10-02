@@ -119,3 +119,17 @@ Solo añadiremos JavaScript específico cuando una diapositiva concreta realment
 ## Fiabilidad de dependencias
 
 Reveal.js se sirve localmente desde `vendor/reveal/`. No lo sustituyas por un CDN solo para reducir archivos: una regresión real dejó una presentación completamente en blanco aunque GitHub Pages había desplegado correctamente. Consulta `REGRESSIONS.md` antes de simplificar dependencias de ejecución.
+
+
+## Contrato de diseño: lienzo fijo
+
+Las presentaciones se diseñan como un lienzo fijo de **1600 × 900**. Reveal.js escala el lienzo completo para adaptarlo al viewport; el contenido interno no debe reorganizarse según el tamaño de pantalla.
+
+Reglas:
+
+- No uses `@media (max-width: ...)` para cambiar columnas, paddings, tamaños o posiciones dentro de una slide.
+- No construyas una versión móvil distinta de la diapositiva.
+- Mantén `width: 1600`, `height: 900`, `margin: 0`, `minScale: 0.1` y `scrollActivationWidth: null`.
+- Usa píxeles, porcentajes, Grid y Flexbox relativos al lienzo, no al viewport, para la geometría interna.
+- Los media queries de accesibilidad como `prefers-reduced-motion` sí son válidos porque no cambian la composición.
+- Comprueba que la misma composición se conserva en escritorio, portátil, móvil horizontal y móvil vertical; solo debe variar la escala.
