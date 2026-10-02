@@ -8,6 +8,7 @@ La idea es deliberadamente sencilla:
 - **index.html** contiene las diapositivas.
 - **style.css** contiene el aspecto visual.
 - **assets/** guarda imágenes, vídeos y otros recursos.
+- **vendor/reveal/** contiene Reveal.js y el plugin de notas servidos localmente.
 - No hay npm, build, framework propio ni GSAP por defecto.
 
 ## Para crear una presentación
@@ -114,3 +115,7 @@ Este repositorio no pretende acumular funciones. Pretende quitar trabajo.
 Para una presentación normal, no añadas librerías. Reveal.js ya cubre navegación, responsive, progreso, enlaces por slide, fragmentos, Auto-Animate y notas.
 
 Solo añadiremos JavaScript específico cuando una diapositiva concreta realmente lo necesite.
+
+## Fiabilidad de dependencias
+
+Reveal.js se sirve localmente desde `vendor/reveal/`. No lo sustituyas por un CDN solo para reducir archivos: una regresión real dejó una presentación completamente en blanco aunque GitHub Pages había desplegado correctamente. Consulta `REGRESSIONS.md` antes de simplificar dependencias de ejecución.
