@@ -8,7 +8,7 @@ La idea es deliberadamente sencilla:
 - **index.html** contiene las diapositivas.
 - **style.css** contiene el aspecto visual.
 - **assets/** guarda imágenes, vídeos y otros recursos.
-- **vendor/reveal/** contiene Reveal.js y el plugin de notas servidos localmente.
+- **vendor/reveal/** contiene Reveal.js y el plugin de notas servidos localmente.\n- **speaker-gallery.js** añade la galería de navegación a la Speaker View sin modificar el código vendorizado de Reveal.js.
 - No hay npm, build, framework propio ni GSAP por defecto.
 
 ## Para crear una presentación
@@ -133,3 +133,15 @@ Reglas:
 - Usa píxeles, porcentajes, Grid y Flexbox relativos al lienzo, no al viewport, para la geometría interna.
 - Los media queries de accesibilidad como `prefers-reduced-motion` sí son válidos porque no cambian la composición.
 - Comprueba que la misma composición se conserva en escritorio, portátil, móvil horizontal y móvil vertical; solo debe variar la escala.
+
+
+## Galería de diapositivas en Speaker View
+
+Pulsa **S** para abrir la Speaker View. Dentro de esa ventana, pulsa **G** o el botón **Todas las diapositivas** para abrir una galería temporal con miniaturas de todo el deck.
+
+- Flechas: recorrer miniaturas.
+- Enter o Espacio: saltar a la diapositiva seleccionada.
+- Esc: cerrar la galería y volver a las notas.
+- Clic en una miniatura: saltar directamente a esa diapositiva.
+
+La implementación vive en `speaker-gallery.js`. **No modifiques `vendor/reveal/notes.js` para personalizaciones de interfaz**: mantener nuestra extensión separada reduce el riesgo al actualizar Reveal.js.
