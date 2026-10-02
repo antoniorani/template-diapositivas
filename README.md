@@ -8,7 +8,8 @@ La idea es deliberadamente sencilla:
 - **index.html** contiene las diapositivas.
 - **style.css** contiene el aspecto visual.
 - **assets/** guarda imágenes, vídeos y otros recursos.
-- **vendor/reveal/** contiene Reveal.js y el plugin de notas servidos localmente.\n- **speaker-gallery.js** añade la galería de navegación a la Speaker View sin modificar el código vendorizado de Reveal.js.
+- **vendor/reveal/** contiene Reveal.js y el plugin de notas servidos localmente.
+- **speaker-gallery.js** añade la galería de navegación a la Speaker View sin modificar el código vendorizado de Reveal.js.
 - No hay npm, build, framework propio ni GSAP por defecto.
 
 ## Para crear una presentación
@@ -145,3 +146,21 @@ Pulsa **S** para abrir la Speaker View. Dentro de esa ventana, pulsa **G** o el 
 - Clic en una miniatura: saltar directamente a esa diapositiva.
 
 La implementación vive en `speaker-gallery.js`. **No modifiques `vendor/reveal/notes.js` para personalizaciones de interfaz**: mantener nuestra extensión separada reduce el riesgo al actualizar Reveal.js.
+
+## Relación entre templates y presentaciones
+
+Este repositorio es la **referencia del motor técnico** de las presentaciones.
+
+La relación entre repositorios es deliberadamente por copia, no por dependencia en tiempo de ejecución:
+
+1. `template-diapositivas` mantiene el motor común: Reveal.js, configuración base, Speaker View, galería y contrato de renderizado.
+2. `template-diapositivas-aepd` incorpora de forma deliberada los cambios técnicos que sean útiles y añade la identidad visual AEPD.
+3. Cada presentación creada desde un template es una **instantánea autocontenida**. No se actualiza automáticamente cuando cambia el template de origen.
+
+Reglas de mantenimiento:
+
+- Los cambios del motor común deben evaluarse primero aquí.
+- Los cambios visuales específicos de AEPD pertenecen a `template-diapositivas-aepd`, no a este repositorio.
+- Una presentación ya publicada solo debe recibir cambios del template si existe una razón concreta, especialmente una corrección importante o de fiabilidad.
+- No añadas submódulos, CDN, paquetes remotos ni otras dependencias solo para mantener repositorios sincronizados.
+- Antes de propagar un cambio técnico entre repositorios, valida primero que funciona en navegador y revisa `REGRESSIONS.md`.
