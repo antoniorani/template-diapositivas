@@ -7,7 +7,6 @@ La idea es deliberadamente sencilla:
 - **Reveal.js** resuelve el motor de presentación.
 - **index.html** contiene las diapositivas.
 - **style.css** contiene el aspecto visual.
-- **notes-panel.js** muestra en la propia presentación las notas de la diapositiva actual.
 - **assets/** guarda imágenes, vídeos y otros recursos.
 - No hay npm, build, framework propio ni GSAP por defecto.
 
@@ -78,8 +77,6 @@ Dentro de una slide:
 ```
 
 Durante la presentación pulsa **S** para abrir la vista del presentador.
-
-El template incluye además un **panel inferior de notas** que sigue automáticamente la diapositiva actual. Pulsa **N** o haz clic en la pestaña **Notas** para abrirlo o cerrarlo.
 
 ## Controles útiles
 
