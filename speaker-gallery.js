@@ -75,6 +75,7 @@
     let overlay = null;
     let grid = null;
     let openButton = null;
+    let slideCounter = null;
     let thumbnails = [];
     let slides = [];
     let selectedIndex = 0;
@@ -117,6 +118,9 @@
       if (!overlay || !speakerWindow || speakerWindow.closed) return;
 
       const activeIndex = currentIndex();
+      if (slideCounter) {
+        slideCounter.textContent = `${labels.slide} ${activeIndex + 1} / ${slides.length}`;
+      }
       thumbnails.forEach((button, index) => {
         const active = index === activeIndex;
         button.classList.toggle("is-current", active);
@@ -403,6 +407,13 @@
 
       speakerWindow = speaker;
       slides = slideDescriptors();
+
+      const currentSlide = doc.getElementById("current-slide");
+      if (currentSlide) {
+        slideCounter = doc.createElement("span");
+        slideCounter.className = "overlay-element label";
+        currentSlide.appendChild(slideCounter);
+      }
 
       const style = doc.createElement("style");
       style.dataset.speakerGallery = "true";
