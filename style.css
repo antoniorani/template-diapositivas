@@ -174,8 +174,3 @@ body {
   color: var(--accent);
 }
 
-.reveal .slide-number {
-  background: transparent;
-  color: var(--muted);
-  font-size: 14px;
-}
