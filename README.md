@@ -138,6 +138,9 @@ Reglas:
 
 ## Galería de diapositivas en Speaker View
 
+La audiencia no ve numeración de diapositivas. Speaker View muestra `Diapositiva N / total` sobre la vista actual.
+
+
 Pulsa **S** para abrir la Speaker View. Dentro de esa ventana, pulsa **G** o el botón **Todas las diapositivas** para abrir una galería temporal con miniaturas de todo el deck.
 
 - Flechas: recorrer miniaturas.
