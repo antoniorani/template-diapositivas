@@ -1,28 +1,24 @@
-# Registro de regresiones
+# Registro de regresiones · motor común
 
-Este archivo recoge fallos reales introducidos durante cambios técnicos para evitar repetirlos en futuras presentaciones.
+Este archivo contiene únicamente regresiones del motor reutilizable. Las plantillas especializadas y los cursos deben registrar en sus propios repositorios solo los fallos específicos de su capa.
 
 ## 2026-10-02 — Reveal.js remoto dejó la presentación en blanco
 
 **Cambio que introdujo la regresión**
 
-Se sustituyeron los archivos locales de Reveal.js 6.0.1 (`reveal.js`, `reveal.css` y `notes.js`) por referencias equivalentes a jsDelivr con el objetivo de simplificar el repositorio.
+Se sustituyeron los archivos locales de Reveal.js (`reveal.js`, `reveal.css` y `notes.js`) por referencias equivalentes a un CDN.
 
-**Síntoma observado**
+**Síntoma**
 
-La presentación publicada en GitHub Pages cargaba como una página completamente en blanco. El workflow de GitHub Pages terminaba correctamente, por lo que el despliegue exitoso no detectó el fallo de ejecución en el navegador.
+GitHub Pages desplegó correctamente, pero la presentación publicada quedó en blanco.
 
 **Lección**
 
-Las dependencias necesarias para que la presentación llegue siquiera a inicializarse son dependencias críticas de ejecución. Reducir archivos no compensa introducir un nuevo punto externo de fallo.
+Las dependencias necesarias para inicializar el deck son críticas de ejecución. Ahorrar archivos no compensa añadir un punto externo de fallo.
 
-**Regla para el futuro**
+**Regla**
 
-- Mantener Reveal.js y el plugin de notas vendorizados localmente en `vendor/reveal/`.
+- Mantener Reveal.js y Notes vendorizados en `vendor/reveal/`.
 - No sustituir dependencias críticas locales por CDN sin una razón funcional clara.
-- Después de cambiar rutas de scripts, CSS, plugins o dependencias, hacer una prueba de humo sobre la URL publicada, no solo comprobar que GitHub Pages haya desplegado.
-- Conservar la Speaker View nativa de Reveal.js mediante `RevealNotes`; no reimplementar un sistema propio salvo necesidad demostrada.
-
-**Corrección aplicada**
-
-Se restauraron los archivos locales de Reveal.js 6.0.1 y se actualizó el template para que las nuevas presentaciones hereden este enfoque.
+- Validar los cambios de scripts, CSS, plugins o rutas abriendo la presentación publicada.
+- Mantener la Speaker View nativa mediante `RevealNotes`; las personalizaciones deben vivir fuera del código vendorizado.
